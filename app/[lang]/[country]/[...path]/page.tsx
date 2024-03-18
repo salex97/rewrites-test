@@ -1,13 +1,19 @@
-const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}` ?? "";
-const googleSiteVerification =
-  `${process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}` ?? "";
-
 interface PageProps {
   params: {
     lang: string;
     country: string;
     path: string[];
   };
+}
+
+export async function generateStaticParams() {
+  return [
+    {
+      params: {
+        slug: ["de", "DE", "static"],
+      },
+    },
+  ];
 }
 
 // Generate a page for each slug
